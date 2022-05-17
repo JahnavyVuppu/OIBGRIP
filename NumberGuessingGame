@@ -1,9 +1,10 @@
-import java.util.Scanner;
+
+                   import java.util.Scanner;
 import java.util.Random;
 
 public class NumberGuess {
     public static void main(String[] args){
-        int HiddenNumber,Guess,choice;
+        int HiddenNumber,Guess,choice,count=0;
         Random random= new Random();
         System.out.println("ENTER YOUR NAME:");
         Scanner sc=new Scanner(System.in);
@@ -30,28 +31,18 @@ public class NumberGuess {
             else if(Guess==HiddenNumber)
             {
             System.out.println("Congrats!! You are RIGHTT.....\nYou guessed the number in "+turns+" attempts..");
-            System.out.println("1.Replay\n2.Exit");
-            choice=sc.nextInt();
-            switch(choice)
-            {
-                    case 1:
-                    play=true;
-                    HiddenNumber=random.nextInt(101);
-                    System.out.println("HIDDEN NUMBER: "+HiddenNumber);
-                    System.out.println("You have 7 guesses");
-                    turns=1;
-                    break;
-                    case 2:
-                    play=false;
-            }    
+            count=5;    
             }
             turns++;
             if(turns==8)
             {
                 System.out.println("Your 7 turns are over");
+                count=5;
+            }
+            if(count==5){
                 System.out.println("1.Replay\n2.Exit");
                 choice=sc.nextInt();
-            }
+            
             switch(choice)
             {
                     case 1:
@@ -63,9 +54,14 @@ public class NumberGuess {
                     break;
                     case 2:
                     play=false;
-                }
+            }
+            count=0;
+            }
         }
         System.out.println("Thanks for Playing!!");
         sc.close();
     }    
 }
+    
+
+
