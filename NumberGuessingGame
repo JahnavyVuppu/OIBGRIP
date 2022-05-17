@@ -32,6 +32,18 @@ public class NumberGuess {
             System.out.println("Congrats!! You are RIGHTT.....\nYou guessed the number in "+turns+" attempts..");
             System.out.println("1.Replay\n2.Exit");
             choice=sc.nextInt();
+            switch(choice)
+            {
+                    case 1:
+                    play=true;
+                    HiddenNumber=random.nextInt(101);
+                    System.out.println("HIDDEN NUMBER: "+HiddenNumber);
+                    System.out.println("You have 7 guesses");
+                    turns=1;
+                    break;
+                    case 2:
+                    play=false;
+            }    
             }
             turns++;
             if(turns==8)
